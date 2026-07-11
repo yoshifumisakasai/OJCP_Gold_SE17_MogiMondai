@@ -23,3 +23,17 @@ public interface Collection<E> {
 ```
 
 **□Collection型インタフェース を実装するすべてのクラスが parallelStream() を使用可能**  
+
+
+
+#順序付きストリーム  
+→ 元の順序（a→b→c→d）を保持する
+→ findFirst() は必ず a を返す
+→ forEach() は a→b→c→d の順で実行される（並列でも）
+
+
+
+#順序なしストリーム  
+→ 順序を保持しない
+→ findFirst() は意味を持たない（どれが来てもよい）
+→ forEach() の実行順序は保証されない
