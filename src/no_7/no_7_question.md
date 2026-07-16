@@ -86,9 +86,52 @@ public class Employee implements Serializable {
 }
 ```
 
+A. ois.readObject()
 
-#試験で判断できなかった部分  
+B. (Item)ois.reader()
+
+C. (Item)ois.readObject()
+
+D. new Item(ois)
+
+E. ois.readBytes()
+
+
+
+#試験で判断できなかった部分(設問解き1回目）  
 Java GoldSE17模擬問題で出ましたが、チンプンカンプンでわかりません。  
 Eclipseではコーディングして仕様理解はしたのですが、Eclipseなしで紙の試験、机上ではまったくわからずでした。
 試験解答のポイントは何か？
+
+
+
+#前提知識は？
+
+
+**シリアライズ ** 
+オブジェクトをバイト列（データ）に変換すること  
+※「Javaオブジェクト → ファイルやネットワークで送れるデータ」に変換する処理  
+`writeObject()`  
+
+
+**デシリアライズ** 
+バイト列から元のオブジェクトへ戻すこと  
+※「ファイルのデータ → Javaオブジェクト」へ復元する処理   
+`readObject()  `  
+
+
+#試験観点  
+
+**ObjectInputStream.readObject() の戻り値は Object**  
+`public final Object readObject()`   
+readObject() は Object を返すため、キャストが必須  
+※Object → Employee の暗黙キャストは不可  
+
+
+
+
+#試験で判断できなかった部分(設問解き2回目）  
+・シリアライズ化：writeObject()  
+・デシリアライズ化：readObject()   
+・readObject() の戻り値は Objectなのでキャスト必要な点  
 

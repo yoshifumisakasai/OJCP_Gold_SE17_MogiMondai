@@ -65,3 +65,24 @@ java.io.Console
 `printf(format, arg1, arg2, arg3...)`  
 という構造
 **format の中の % の数と、後ろの引数の数が一致している必要がある**  
+
+
+
+
+#System.out（内部仕様）
+Java の System クラスのフィールド：
+
+`public final static PrintStream out = null;`  
+**JVM 起動時にこの out に PrintStreamクラス（オブジェクト）がセットされる**  
+PrintStream は OS の標準出力（stdout）に接続されている  
+
+■System.out.println() の流れ  
+1.System クラスの静的フィールド out を参照  
+
+2.out は PrintStream インスタンス  
+
+3.PrintStream.println() が呼ばれる  
+
+4.println() は内部で write() → OutputStream → OS の stdout に書き込む  
+
+5.OS がコンソールに文字を表示する  

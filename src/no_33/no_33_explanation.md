@@ -32,3 +32,34 @@ void forEach(Consumer<Object> action)
 n.x()  
 コンパイルエラー    
 （NoSuchMethodException ではなく、実行以前の問題）  
+
+
+
+#本質
+この設問コードでは、
+**raw 型でも、ジェネリクス指定でも、このコードは必ずコンパイルエラーになる**  
+*理由は「Integer に x() メソッドが存在しない」ためで、raw 型かどうかは関係ない*  
+
+`ただし、エラーの“種類”が違う`  
+
+
+
+■①  
+**raw 型 List list_x → ラムダの型推論が Object になり、Object に x() がないのでエラー**  
+
+```
+この行に複数マーカーがあります
+	- 型の安全性: メソッド forEach(Consumer) は raw 型 Iterable に属しています。総称型 Iterable<T> への参照はパラメーター化される必要があります
+	- メソッド x() は型 Object で未定義です
+```
+
+■②  
+**ジェネリクス List<Integer> list_y → ラムダの型推論が Integer になり、Integer に x() がないのでエラー`**  
+
+
+`メソッド x() は型 Integer で未定義です`  
+ 
+ 
+
+**どちらも x() が存在しないためコンパイルエラーだが、エラーの原因が違う**  
+**エラーの“理由”が異なる点が Java Gold の重要ポイント**  

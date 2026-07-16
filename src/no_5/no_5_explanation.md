@@ -35,6 +35,23 @@ B.間違い
 
 `Locale.JAPANESE はある`    
 
+**Locale.JAPAN = 日本という国を含むロケール**  
+**Locale.JAPANESE = 日本語という言語だけのロケール**  
+`System.out.println(Locale.JAPAN);`      // ja_JP  
+`System.out.println(Locale.JAPANESE);`  // ja  
+
+
+| 定数名         | language |country | toString() の出力 |
+|----------------|----------|--------|-------------------|
+| Locale.JAPAN   | "ja"     |   "JP" | "ja_JP"           |
+| Locale.JAPANESE| "ja"     |""（空）| "ja"              |
+
+
+
+※フランスでもまったく同じ構造  
+Locale は「言語（language）＋国（country）」の組み合わせなので、FR（国あり）と fr（言語のみ）の違いがそのまま Locale.FRANCE と Locale.FRENCH の違いになります  
+
+
 **でも Locale.ja_JP は無い**  
 
 試験では「存在しない定数」を選ばせる罠。

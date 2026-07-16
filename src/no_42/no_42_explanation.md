@@ -85,6 +85,9 @@ modulea のソースは指定している（source-path）
 ❌ 不正解
 
 
+**-source-path は「javac が ソース(.java) を探しに行くディレクトリを指定するオプション **   
+※Java 9 以降のモジュールシステム用の --module-source-path とは別物で、もっと単純な「ソース検索パス」  
+
 
 B.
 コード
@@ -129,8 +132,7 @@ javac -d out/modulea -classpath out/moduleb $(find src/modulea -name "*.java")
 E.
 コード
 javac -d out --module-path src -classpath ../out/moduleb --module modulea
-module-path に src を指定している → ソースを module-path に置くのは誤り
-
+`module-path に src を指定している → ソースを module-path に置くのは誤り`  
 `classpath に moduleb を置いている → モジュールとして扱われない`  
 
 ❌ 不正解

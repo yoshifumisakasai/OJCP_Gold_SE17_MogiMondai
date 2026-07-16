@@ -83,3 +83,8 @@ Subscriber が 1 件も要求しない（＝需要ゼロ）ので、Publisher �
 *■Subscriber はデータを受け取る*  
 *■Subscription は Publisher と Subscriber の橋渡し*  
 *→ request(n) で「何件欲しいか」を指定する（バックプレッシャー）*  
+
+〇順番  
+`①データほしい側がrequestする（何件欲しい）`    
+↓  
+`②データを発行してもらう`  

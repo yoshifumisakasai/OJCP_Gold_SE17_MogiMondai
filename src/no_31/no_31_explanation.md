@@ -82,6 +82,8 @@ average() → OptionalDouble
 getAsDouble() で取り出す
 
 教科書通りの正解
+`averageはOptional型で返すので、Double型で返したい場合はgetAsDoubleを用います`  
+
 
 
 〇注意  
@@ -125,7 +127,7 @@ values.stream()
       .orElseThrow();
 ```
       
-❌ averagingDouble の戻り値は Doubleで、Optional ではない  
+**❌ averagingDouble の戻り値は Doubleで、Optional ではない**  
 かつ orElseThrow() は存在しない→ コンパイルエラー  
 
 

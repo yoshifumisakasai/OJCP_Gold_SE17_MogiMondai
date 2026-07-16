@@ -38,13 +38,23 @@ E. console.printf("value = %d", value);
 
 
 
-#この設問を説いたときの所感（設問見たとき、解いたときの知識レベル、試験観点の把握レベルは？）    
+#この設問を説いたときの所感(1回目)    
 16.？ちんぷんかんぶん
+
+
+#この設問を説いたときの所感(2回目)
+
+Consoleクラスには、printfしかないことを意識できていない  
+println/printは、System.outにあること  
 
 
 #選択肢を絞るために必要な前提知識（Java文法や仕様）
 
 ・Consoleクラスとは？
+`Console = OS のコンソールと直結した I/O 専用クラス`  
+**Console は java.io.Console に属するクラスで、JVM が「実行環境にコンソールが存在するか」をチェックして、存在する場合だけ Console インスタンスを返す**  
+
+※Console は “標準入力” ではなく “OS のコンソールデバイス” に直接つながる I/O API  
 
 
 ・System.console()とは？
@@ -68,6 +78,19 @@ E. console.printf("value = %d", value);
 #選択肢を絞るための試験観点の整理（判定ポイント）  
 
 「Console クラス」で使える出力メソッド（Console には以下のメソッドがある：）  
+
+■Console の主なメソッド  
+✔ readLine()  
+1 行の文字列を読み取る（Enter までブロック）  
+
+✔ readPassword()  
+入力を画面に表示せずに読み取る  
+
+✔ printf() / format()  
+**フォーマット付き出力**  
+**（println は存在しない点が試験で狙われる）**  
+
+
 
 `✔ print は存在しない`  
 → A は 存在しないメソッドなので不正解。  

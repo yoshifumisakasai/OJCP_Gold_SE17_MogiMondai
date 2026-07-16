@@ -89,7 +89,9 @@ Thread2: a をロック → b を待つ
 
 
 
-
+□synchronized(this)   
+`this は「その execute() メソッドを呼び出した Value インスタンス」を指す`  
+`送金元（from） の Value オブジェクト`  
 
 
 ■他の選択肢がなぜ不正解かについてのポイント  

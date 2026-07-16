@@ -1,7 +1,7 @@
 #anyMatch のシグネチャ
 Streamインタフェース型の抽象メソッド  
 `boolean anyMatch(Predicate<? super T> predicate)`  
-※戻り値は必ず boolean  
+**※戻り値は必ず boolean**    
 
 
 #インタフェースStream<T>仕様  

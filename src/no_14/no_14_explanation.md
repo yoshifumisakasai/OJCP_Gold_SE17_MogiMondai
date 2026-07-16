@@ -98,3 +98,17 @@ T - このコンパレータにより比較されるオブジェクトの型
 		list.forEach(e -> System.out.printf("%s", e));
 ```
 
+
+
+
+
+#Collectionクラスの「sort（）メソッド」
+2種類  
+（オーバーロード）  
+
+
+`static <T extends Comparable<? super T>> void	sort(List<T> list)`  
+指定されたリストを、その要素の自然順序付けに従って昇順にソート  
+
+`static <T> void	sort(List<T> list, Comparator<? super T> c)	`  
+指定されたコンパレータが示す順序に従って、指定されたリストをソート  

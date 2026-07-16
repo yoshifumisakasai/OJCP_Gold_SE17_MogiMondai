@@ -45,6 +45,7 @@ D. コンパイルエラーが発生する
 
 ①record は 自動で toString() を生成する  
 フォーマットは 「RecordName[field=value, field=value]」 で固定 
+`※recordは、toStringメソッドを自動生成し、各レコードコンポーネント（フィールド）をname=valueの形式でカンマ区切りに並べた文字列を返す`  
 
 
 ②形式は Object のデフォルト toString()  

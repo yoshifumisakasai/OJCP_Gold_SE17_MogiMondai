@@ -39,9 +39,14 @@ E. 実行時に例外がスローされる
 
 
 
-#問題解いた時の所感  
+#問題解いた時の所感(設問解き1回目）  
 15.?ちんぷんかんぷん
 
+
+#迷った部分(設問解き2回目）
+
+B
+※特に迷わず正答OK  
 
 
 #選択肢を絞るために必要な前提知識（Java文法や仕様）
@@ -67,3 +72,24 @@ E. 実行時に例外がスローされる
 
 #選択肢を絞るための試験観点の整理（判定ポイント）
 
+*Thread コンストラクタに渡しているラムダ式は Runnable の run() の中身*  
+
+
+`Thread t = new Thread(() -> {...})`  
+◆ Runnable をラムダ式で実装している  
+new Thread(() -> {...}) のラムダ式は Runnable の run() を実装した匿名クラスと同じ意味  
+
+□内部的なクラス生成イメージ：  
+
+```
+class SyntheticRunnable implements Runnable {
+    @Override
+    public void run() {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("a" + i);
+        }
+    }
+}
+```
+
+**Thread コンストラクタに渡されるのは、この匿名クラスのインスタンス**  

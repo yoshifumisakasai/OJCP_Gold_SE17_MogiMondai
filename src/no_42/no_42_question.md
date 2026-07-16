@@ -65,7 +65,7 @@ E.  javac -d out --module-path src -classpath ../out/moduleb --module modulea
    
 #観点、ポイント （選択肢を一瞬で絞るための4つのポイント）  
 
-module-source-path → ソースを探す場所  
+module-source-path → ソースを探す場所  (同義：-source-path )  
 
 module-path → コンパイル済みモジュールを探す場所  
 

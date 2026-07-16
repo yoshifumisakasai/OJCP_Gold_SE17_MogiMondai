@@ -38,6 +38,13 @@ predicate - ストリームの要素に適用する非干渉でステートレ�
 #noneMatchメソッドについて  
 `boolean noneMatch(Predicate<? super T> predicate)`  
 
+※「none」は、１つも無いという英語  
+
+**noneMatch は「ストリームの全要素が条件に一致しないことを確認する終端操作」**  
+**Predicate.test が 1 回も true を返さなければ true を返すメソッド**  
+`ストリームの要素に対して predicate.test(v) を順に評価し、1つでも true が出たら即座に false を返し、最後まで true が出なければ true を返す`  
+
+
 
 □APIのノート:  
 このメソッドは、ストリームの要素に対する述語の否定の全称量化(すべてのxについて~P(x))を評価します。 ストリームが空の場合、量化は無意味に満たされると言い、P(x)とは無関係に常にtrueになります。  

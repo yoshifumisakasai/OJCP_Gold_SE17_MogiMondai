@@ -84,3 +84,66 @@ E. newCachedThreadPool()
 スレッドは 60 秒間アイドルなら破棄
 
 スレッド数は 0〜無限に伸び縮み
+
+
+#クラスExecutorsと、ExecutorServiceインタフェースの関係性について  
+**Executors と ExecutorService の関係は「実装関係」ではなく「インスタンス生成のためのユーティリティ関係」**  
+
+
+**Executors はユーティリティクラス（工場＝Factory）**  
+
+**Executors は ExecutorService を実装したクラスのインスタンスを返すだけ**    
+
+
+
+Executors 自身は ExecutorService を 実装していない  
+
+ExecutorService はインタフェース（契約）  
+
+
+```
+ExecutorService (インタフェース)  
+        ↑  
+        │ implements  
+ThreadPoolExecutor / ScheduledThreadPoolExecutor など  ※実装クラス（実体）   
+        ↑  
+        │ インスタンスを作る  
+Executors（ユーティリティクラス）  
+```
+
+■例：固定スレッドプールを作る場合  
+
+`ExecutorService service = Executors.newFixedThreadPool(3);`  
+内部処理の動き:　　
+*Executors.newFixedThreadPool(3) がThreadPoolExecutorのインスタンスをnewして返している*  
+*Executors はただの static メソッド集*  
+
+
+
+
+
+
+
+#設計について（Java の設計思想）
+
+**1. 実装クラスを隠すため**  
+*ユーザは ThreadPoolExecutorを直接newする必要がない*  
+
+`new ThreadPoolExecutor(...)  // パラメータが多くて複雑`  
+*これを隠して、簡単な API を提供するために Executors がある*  
+
+
+
+
+**2. 柔軟な実装差し替えのため**
+ExecutorService 型（インタフェース型）で受けておけば、
+
+```
+ExecutorService s = Executors.newCachedThreadPool();
+ExecutorService s = Executors.newSingleThreadExecutor();
+ExecutorService s = Executors.newScheduledThreadPool(2);
+```
+どの実装でも同じように扱える。
+
+⇒左辺のインタフェース型に、実装クラス型を代入可能（Java仕様）  
+※両者間に、実装関係があることが条件  

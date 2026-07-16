@@ -17,6 +17,19 @@ E. CallableStatement stmt = con.prepareCall("UPDATE_SAMPLE(?,?)");
    CallableStatemetnってなんだっけ？
 
 
+
+#2回目
+やはり迷って、わからない。
+
+①以下の違いがわかっていない点  
+・`「CallableStatement」インタフェース型`    
+・`「PreparedStatement」インタフェース型`    
+
+②それぞれのインタフェース型の「抽象メソッド」がわかっていない
+・「CallableStatement」インタフェース型は、コネクション（Connection）に対して、 prepareCall() でSQL用APIを呼ぶ  
+・「PreparedStatement」インタフェース型は、コネクション（Connection）に対して、prepareStatement()でSQL文を実行  
+
+
 #正答  
 A. con.callable(...)  
 そんなメソッドは JDBC に存在しない。

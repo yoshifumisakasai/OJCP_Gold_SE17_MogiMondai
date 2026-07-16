@@ -49,8 +49,12 @@ double result_e = values.stream().map(i->i).average().orElse();
 
 		
 		
-#設問見た時の所感
+#設問見た時の所感（１回目）
 31.チンプンカンプンどれも正しようにしか見えない
+
+
+#設問見た時の所感（２回目）
+同じ、わからない
 
 
 #試験観点は何か？  
@@ -71,9 +75,10 @@ Java Gold の本質 )
 average() は IntStream / LongStream / DoubleStream のメソッド  
 
 注意点：  
-stream()には、averageメソッドはないが、mapToIntメソッドは存在していて、その戻り値型が、「IntStreamインタフェース」
-そのため、そのインタフェースには、「average()メソッド」あるので問題なし
-※メソッドチェーンになっているものは注意してください   
+**stream()には、averageメソッドはないが、mapToIntメソッドは存在していて（いえ、そうではなく）、**  
+**その戻り値型が、「IntStreamインタフェース」**  
+**そのため、そのインタフェースには、「average()メソッド」あるので問題なし**  
+`※メソッドチェーンになっているものは注意してください`   
 `values.stream().mapToInt(x -> x).average().getAsDouble();`  
 ※stream()とaverage()の間に1つあるので、それを無しと判断して、stream()にはaverage()なしだからNG選択肢とはならないこと
 ※中間に「mapToInt()」あるので、その戻り値型に対して、「average()」を呼んでいる  
@@ -83,7 +88,16 @@ mapToIntの戻り値は、IntStreamインタフェース型
 mapToDouble戻り値は、DoubleStreamインタフェース型
 mapToLongの戻り値は、LongStreamインタフェース型  
 
+■例）  
+`インタフェースIntStream`  
+すべてのスーパー・インタフェース:AutoCloseable, BaseStream<Integer,IntStream>  
 
+`public interface IntStream extends BaseStream<Integer,IntStream>`  
+
+**OptionalDouble average()**  
+このストリームの要素の算術平均を記述するOptionalDoubleまたは空のOptional (このストリームが空の場合)を返します。   
+
+戻り値:このストリームの平均要素を含むOptionalDoubleまたは空のオプション(ストリームが空の場合)  
 
 
 ❌ averagingDouble の戻り値は Doubleで、Optional ではないため、Optional判定でのみ使用できるorElseThrow() は存在しない
