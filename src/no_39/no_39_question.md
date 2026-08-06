@@ -14,7 +14,7 @@ jlink -p out --add-modules moda --output runtime
 
 A. ./out/bin/app.moda.Main
 
-B. ./runtimme/bin/main
+B. ./runtime/bin/main
 
 C. ./runtime/bin/java app.moda.Main
 

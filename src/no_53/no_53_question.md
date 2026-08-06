@@ -26,6 +26,18 @@ public class TreeSet {
 ```
 
 
+A. A,B,Cの順に表示される
+
+B. B,A,Cの順に表示される
+
+C. A,A,B,Cの順に表示される
+
+D. B,C,Aの順に表示される
+
+E. B,A,C,Aの順に表示される
+
+F. コンパイルエラーが発生する
+
 #設問といたきの所感
 
 53.Aかあ
@@ -41,6 +53,9 @@ public class TreeSet {
 HashSet → 順序保証なし  
 
 TreeSet → 自然順序（昇順）  
+
+・Set系共通
+ **重複要素は保持しない（Set の性質）**  
 
 
 #試験観点  

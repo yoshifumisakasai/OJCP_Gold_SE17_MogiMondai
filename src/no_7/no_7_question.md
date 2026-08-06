@@ -1,7 +1,17 @@
+設問7
 次のコードの「/insert code here」に入るコードとして正しいものを１つ選べ
 
+□コード1:
 
-□コード1:  
+```
+import java.io.Serializable;
+
+record Item(String name, int price) implements Serializable{}
+
+```
+
+
+□コード2:  
 
 ```
 package File_I_O;
@@ -39,7 +49,7 @@ public class Custom_caller {
 
 
 
-□コード2:  
+□コード3:  
 
 ```
 package File_I_O;
@@ -50,39 +60,37 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-	private String name;
-	private String telephone;
+ private EmployeeRecord record;
 
-	public Employee(String name, String telephone) {
-		super();
-		this.name = name;
-		this.telephone = telephone;
-	}
+    public Employee(String name, String telephone) {
+        this.record = new EmployeeRecord(name, telephone);
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return record.name();
+    }
 
-	public String getTelephone() {
-		return telephone;
-	}
+    public String getTelephone() {
+        return record.telephone();
+    }
 
-	@Override
-	public String toString() {
-		return "Employee[name=" + name + ",telephone=" + telephone + "]";
-	}
+    @Override
+    public String toString() {
+        return "Employee[name=" + getName() + ",telephone=" + getTelephone() + "]";
+    }
 
-	private void writeObject(ObjectOutputStream out) throws IOException {
-		System.out.println("write");
-		out.writeObject(name);
-		out.writeObject(telephone);
-	}
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        System.out.println("write");
+        out.writeObject(record.name());
+        out.writeObject(record.telephone());
+    }
 
-	private void readObject(ObjectInputStream in) throws ClassNotFoundException, IOException {
-		System.out.println("read");
-		this.name = (String) in.readObject();
-		this.telephone = (String) in.readObject();
-	}
+    private void readObject(ObjectInputStream in) throws ClassNotFoundException, IOException {
+        System.out.println("read");
+        String name = (String) in.readObject();
+        String telephone = (String) in.readObject();
+        this.record = new EmployeeRecord(name, telephone);
+    }
 }
 ```
 

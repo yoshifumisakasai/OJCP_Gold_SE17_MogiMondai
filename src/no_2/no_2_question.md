@@ -1,6 +1,12 @@
  
-  #設問2  
+  #設問2
+  
+□コード1
+  
   `record Item(String name, int price){}`  
+  
+  
+□コード2
   
   ```
   @FunctionalInterface
@@ -9,6 +15,7 @@
   }
 ```
 
+□コード3
 ```  
   public class Sample{
    public static void main(String[] args){

@@ -18,9 +18,7 @@ import java.util.stream.Stream;
 public class File_Groping {
 	public static void main(String[] args) {
 		try (Stream<String> data = Files.lines(Paths.get("sample.txt"))) {
-			Map<String, Long> result = data.flatMap(line -> Arrays.stream(line.split("\\W+")))
-					.filter(word -> !word.isEmpty())
-					.collect(Collectors.groupingBy(word -> word, Collectors.counting()));
+			Map<String, Long> result = data.flatMap(line -> Arrays.stream(line.split("\\W+"))).filter(word -> !word.isEmpty()).collect(Collectors.groupingBy(word -> word, Collectors.counting()));
 			result.forEach((word, count) -> System.out.println(word + ":" + count));
 		} catch (IOException e) {
 			e.printStackTrace();

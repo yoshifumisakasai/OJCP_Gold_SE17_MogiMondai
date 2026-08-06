@@ -2,6 +2,8 @@
 
 次のコードをコンパイル、実行したときの結果として正しいものを選びなさい。（1つ選べ）
 
+□コード1
+
 ```
 package stream_api;
 
@@ -31,7 +33,7 @@ public class Stream_compare {
 
 
 
-
+□コード2
 `record Products(String name, String category) {}`  
 
 

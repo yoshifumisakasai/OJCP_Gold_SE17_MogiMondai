@@ -7,8 +7,28 @@
 VEGITABLE: Item[name=tomato, price=150, category=VEGITABLE]
 FRUITS: Item[name=apple, price=100, category=FRUITS]
 
+□コード1
 
-■コード
+```
+package no_11;
+
+//列挙型
+enum Category_X {
+	FRUITS, VEGITABLE
+
+}
+
+```
+
+■コード2
+
+```
+	record Item(String name, int price, Category_X category) {
+	}
+```
+	
+
+■コード3
 
 ```
 package no_11;
@@ -20,8 +40,7 @@ import java.util.stream.Collectors;
 
 public class Collect_group {
 
-	record Item(String name, int price, Category_X category) {
-	}
+
 
 	public static void main(String[] args) {
 
@@ -42,6 +61,16 @@ public class Collect_group {
 }
 ```
 
+A. (k,v) -> System.out.println(k+": "+v::or(null))
+
+B. (k,v) -> System.out.println(k+": "+v.orElse(null))
+
+
+C. (k,v) -> System.out.println(k+": "+v::toString)
+
+D. (k,v) -> System.out.println(k+": "+v)
+
+E. (k,v) -> System.out.println(k+": "+ v.toString())
 
 #設問を説いたときの所見
 

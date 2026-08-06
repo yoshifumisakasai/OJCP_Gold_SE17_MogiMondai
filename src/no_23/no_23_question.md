@@ -7,7 +7,7 @@ A. GGyy年MM月dd日EE
 
 B. Gyy年MM月dd日E
 
-C. GGGGGyy年MM月edd日EE
+C. GGGGGyy年MM月dd日EE
 
 D. GGGyy年dd日EEE
 
